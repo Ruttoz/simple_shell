@@ -1,5 +1,4 @@
-
-<<<<<<< HEAD
+#include "shell.h"
 /**
  * is_chain - test if current character in buf is a chain delimeter
  * @info: the parameter of struct
