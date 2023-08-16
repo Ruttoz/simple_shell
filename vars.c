@@ -151,5 +151,3 @@ int replace_string(char **old, char *new)
 	*old = new;
 	return (1);
 }
-=======
->>>>>>> 88e05b98d57d749d3a1f5e621372bd7470c05744
