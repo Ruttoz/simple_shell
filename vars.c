@@ -10,7 +10,7 @@
  */
 int is_chain(info_t *info, char *buf, size_t *p)
 {
-	size_t j = *p;
+	size_t b = *p;
 
 	if (buf[b] == '|' && buf[b + 1] == '|')
 	{
@@ -53,7 +53,7 @@ void check_chain(info_t *info, char *buf, size_t *p, size_t i, size_t len)
 	{
 		if (info->status)
 		{
-			buf[a] = 0;
+			buf[i] = 0;
 			b = len;
 		}
 	}
@@ -61,7 +61,7 @@ void check_chain(info_t *info, char *buf, size_t *p, size_t i, size_t len)
 	{
 		if (!info->status)
 		{
-			buf[a] = 0;
+			buf[i] = 0;
 			b = len;
 		}
 	}
@@ -109,14 +109,14 @@ int replace_vars(info_t *info)
 	int a = 0;
 	list_t *node;
 
-	for (a = 0; info->argv[i]; a++)
+	for (a = 0; info->argv[a]; a++)
 	{
 		if (info->argv[a][0] != '$' || !info->argv[a][1])
 			continue;
 
 		if (!_strcmp(info->argv[a], "$?"))
 		{
-			replace_string(&(info->argv[i]),
+			replace_string(&(info->argv[a]),
 					_strdup(convert_number(info->status, 10, 0)));
 			continue;
 		}
